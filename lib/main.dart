@@ -8,7 +8,7 @@ void main() {
 class Piano extends StatelessWidget {
   const Piano({Key? key}) : super(key: key);
 
-  void PlaySound(int noteNumber) {
+  void playSound(int noteNumber) {
     AudioCache player = AudioCache();
     player.play('note$noteNumber.wav');
   }
@@ -17,7 +17,7 @@ class Piano extends StatelessWidget {
     return Expanded(
       child: TextButton(
         onPressed: () {
-          PlaySound(noteNumber);
+          playSound(noteNumber);
         },
         style: TextButton.styleFrom(
           backgroundColor: color,
@@ -30,6 +30,7 @@ class Piano extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
           child: Column(
